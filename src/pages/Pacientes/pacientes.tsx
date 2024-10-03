@@ -3,22 +3,30 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 const Pacientes = () => {
 
+    const [user, setUser] = useState<number>(1)
+    const [sanguineo, setSanguineo] = useState<string>('')
+
     useEffect(() => {
+
 
 
     }, [])
 
-    function toggleView(e:any) {
+    function toggleView(e: any) {
         const element = document.querySelector('.patient-toggle')
         if (element) {
             if (element.classList.contains('active')) {
                 element.classList.remove('active')
-                 e.target.textContent = 'Mostrar'
+                e.target.textContent = 'Mostrar'
             } else {
                 element.classList.add('active')
                 e.target.textContent = 'Ocultar'
             }
         }
+    }
+
+    async function doFilter(){
+        
     }
 
 
@@ -46,15 +54,14 @@ const Pacientes = () => {
                         <div className="column w100 gap5">
                             <div className="row gap10">
                                 <p className="bold">Tipo de Documento:</p>
-                                <select name="languages" id="lang">
-                                    <option value="javascript">JavaScript</option>
-                                    <option value="php">PHP</option>
-                                    <option value="java">Java</option>
-                                    <option value="golang">Golang</option>
-                                    <option value="python">Python</option>
-                                    <option value="c#">C#</option>
-                                    <option value="C++">C++</option>
-                                    <option value="erlang">Erlang</option>
+                                <select name="languages" id="documento">
+                                    <option value="DNI">DNI</option>
+                                    <option value="Carnet de extranjeria">Carnet de extranjeria</option>
+                                    <option value="pasaporte">Pasaporte</option>
+                                    <option value="RUC">RUC</option>
+                                    <option value="CPP">CPP</option>
+                                    <option value="Carnet diplomatico">Carnet diplomatico</option>
+                                    <option value="Tarjeta de identidad diplomatico">Tarjeta de identidad diplomatico</option>
                                 </select>
                             </div>
                             <div className="row gap10">
@@ -64,10 +71,10 @@ const Pacientes = () => {
                                     <option value="php">Femenino</option>
                                 </select>
                             </div>
-                            <div className="row gap10">
+                            {/*<div className="row gap10">
                                 <p className="bold">Edad:</p>
                                 <input type="text" />
-                            </div>
+                            </div>*/}
                         </div>
                         <div className="column w100 gap5">
                             <div className="row gap10">
@@ -135,7 +142,16 @@ const Pacientes = () => {
                                     </div>
                                     <div className="row gap10 gsan">
                                         <p className="bold">G. San:</p>
-                                        <p>O+</p>
+                                        <select name="sang" id="sanguineo">
+                                            <option value="A+">A+</option>
+                                            <option value="O+">O+</option>
+                                            <option value="B+">B+</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="O-">O-</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB-">AB-</option>
+                                        </select>
                                     </div>
                                     <div className="row w100 gap10">
                                         <p className="bold">Fin:</p>
@@ -199,7 +215,7 @@ const Pacientes = () => {
                                     </div>
                                     <div className="row w100 gap10">
                                         <p className="bold">Fin:</p>
-                                        
+
                                         <p> </p>
                                     </div>
                                     <div className="row w100 gap10">

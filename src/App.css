@@ -126,7 +126,13 @@ button:hover {
 .secondary:hover{
   background-color: rgb(98, 153, 216);
 }
-
+select{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color: transparent;
+  cursor: pointer;
+}
 .third{
   background-color: rgb(124, 167, 216);
   font-size: 16px;
