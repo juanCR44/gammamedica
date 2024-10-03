@@ -1,0 +1,38 @@
+.filter{
+    background-color: rgb(113, 191, 236);
+    width: 98%;
+    align-self: center;
+    border-radius: 20px;
+}
+
+.filter input{
+    border-bottom: 1px solid #000   ;
+}
+
+.filter-button{
+    background-color: rgb(91, 152, 223);
+}
+.section-patient{
+    border: none;
+}
+.table-patient{
+    overflow-y: scroll;
+}
+.patient-info{
+    background-color:  rgb(197, 236, 255);
+    padding: 10px 20px;
+}
+.patient-toggle{
+    background-color:  rgb(152, 221, 255);
+    padding: 10px 20px;
+    position: relative;
+    display: none;
+}
+.patient-toggle.active{
+    display: unset;
+}
+
+.gsan{
+    position: absolute;
+    left: 38%;
+}
