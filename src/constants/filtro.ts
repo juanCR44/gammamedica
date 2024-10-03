@@ -1,11 +1,11 @@
 export interface Filtro {
-    numeroDocumento: string,
-    apellidoPaterno:string,
-    apellidoMaterno:string,
-    nombre:string,
-    documento:string,
-    genero:string,
-    fecha:Date
+    numeroDocumento: string | undefined,
+    apellidoPaterno:string | undefined,
+    apellidoMaterno:string | undefined,
+    nombre:string | undefined,
+    documento:string | undefined,
+    genero:string | undefined,
+    fecha:string | undefined
 }
 
 export default Filtro;

@@ -29,7 +29,8 @@
     display: none;
 }
 .patient-toggle.active{
-    display: unset;
+    display: flex;
+    gap: 5px;
 }
 
 .gsan{

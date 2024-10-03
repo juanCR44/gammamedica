@@ -6,10 +6,12 @@ const Pacientes = () => {
     const [user, setUser] = useState<number>(1)
     const [sanguineo, setSanguineo] = useState<string>('')
 
+    const [numeroDocumento, setNumeroDocumento] = useState<string>('')
+    const [apellidoPaterno, setApellidoPaterno] = useState<string>('')
+    const [apellidoMaterno, setApellidoMaterno] = useState<string>('')
+    const [nombre, setNombre] = useState<string>('')
+
     useEffect(() => {
-
-
-
     }, [])
 
     function toggleView(e: any) {
@@ -25,8 +27,13 @@ const Pacientes = () => {
         }
     }
 
-    async function doFilter(){
-        
+    async function doFilter() {
+        const startTime = document.getElementById("startTimeInput") as HTMLInputElement;
+        const documento = document.querySelector('#documento option:checked') as HTMLInputElement;
+        const fechaNacimiento = document.querySelector('input[type="date"]') as HTMLInputElement;
+        const genero = document.querySelector('#genero option:checked') as HTMLInputElement;
+        const categoria = document.querySelector('#categoria option:checked') as HTMLInputElement;
+        const tramite = document.querySelector('#tramite option:checked') as HTMLInputElement;
     }
 
 
@@ -40,15 +47,15 @@ const Pacientes = () => {
                         <div className="column w100 gap5">
                             <div className="row gap10">
                                 <p className="bold">Nombre:</p>
-                                <input type="text" />
+                                <input onChange={(e) => setNombre(e.target.value)} type="text" />
                             </div>
                             <div className="row gap10">
                                 <p className="bold">A. Paterno:</p>
-                                <input type="text" />
+                                <input onChange={(e) => setApellidoPaterno(e.target.value)} type="text" />
                             </div>
                             <div className="row gap10">
                                 <p className="bold">A. Materno:</p>
-                                <input type="text" />
+                                <input onChange={(e) => setApellidoMaterno(e.target.value)} type="text" />
                             </div>
                         </div>
                         <div className="column w100 gap5">
@@ -66,7 +73,7 @@ const Pacientes = () => {
                             </div>
                             <div className="row gap10">
                                 <p className="bold">Genero:</p>
-                                <select name="gender" id="gend">
+                                <select name="gender" id="genero">
                                     <option value="javascript">Masculino</option>
                                     <option value="php">Femenino</option>
                                 </select>
@@ -79,7 +86,7 @@ const Pacientes = () => {
                         <div className="column w100 gap5">
                             <div className="row gap10">
                                 <p className="bold">Documento de Identidad:</p>
-                                <input type="text" />
+                                <input onChange={(e) => setNumeroDocumento(e.target.value)} type="text" />
                             </div>
                             <div className="row gap10">
                                 <p className="bold">Fecha:</p>
@@ -133,8 +140,8 @@ const Pacientes = () => {
                                     <button onClick={(e) => toggleView(e)} className="third">Mostrar</button>
                                 </div>
                             </div>
-                            <div className="patient-toggle gap10 column">
-                                <div className="row w100">
+                            <div className="patient-toggle gap5 column">
+                                <div className="row w100 align-center">
                                     <p className="bold w100">Lab grupo Sanguineo</p>
                                     <div className="row w100 gap10">
                                         <p className="bold">Inicio</p>
@@ -142,16 +149,30 @@ const Pacientes = () => {
                                     </div>
                                     <div className="row gap10 gsan">
                                         <p className="bold">G. San:</p>
-                                        <select name="sang" id="sanguineo">
-                                            <option value="A+">A+</option>
-                                            <option value="O+">O+</option>
-                                            <option value="B+">B+</option>
-                                            <option value="AB+">AB+</option>
-                                            <option value="A-">A-</option>
-                                            <option value="O-">O-</option>
-                                            <option value="B-">B-</option>
-                                            <option value="AB-">AB-</option>
-                                        </select>
+                                        {user == 1 ? (
+                                            <select name="sang" id="sanguineo">
+                                                <option value="A+">A+</option>
+                                                <option value="O+">O+</option>
+                                                <option value="B+">B+</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="A-">A-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB-">AB-</option>
+                                            </select>
+                                        ) :
+                                            (
+                                                <select name="sang" id="sanguineo" disabled>
+                                                    <option value="A+">A+</option>
+                                                    <option value="O+">O+</option>
+                                                    <option value="B+">B+</option>
+                                                    <option value="AB+">AB+</option>
+                                                    <option value="A-">A-</option>
+                                                    <option value="O-">O-</option>
+                                                    <option value="B-">B-</option>
+                                                    <option value="AB-">AB-</option>
+                                                </select>
+                                            )}
                                     </div>
                                     <div className="row w100 gap10">
                                         <p className="bold">Fin:</p>
@@ -162,7 +183,7 @@ const Pacientes = () => {
                                         <p className="red">FINALIZADO</p>
                                     </div>
                                 </div>
-                                <div className="row w100">
+                                <div className="row w100 align-center">
                                     <p className="bold w100">Psicologico</p>
                                     <div className="row w100 gap10">
                                         <p className="bold">Inicio</p>
@@ -177,7 +198,7 @@ const Pacientes = () => {
                                         <p className="red">FINALIZADO</p>
                                     </div>
                                 </div>
-                                <div className="row w100">
+                                <div className="row w100 align-center">
                                     <p className="bold w100">Visual</p>
                                     <div className="row w100 gap10">
                                         <p className="bold">Inicio</p>
@@ -192,7 +213,7 @@ const Pacientes = () => {
                                         <p className="red">FINALIZADO</p>
                                     </div>
                                 </div>
-                                <div className="row w100">
+                                <div className="row w100 align-center">
                                     <p className="bold w100">Auditivo</p>
                                     <div className="row w100 gap10">
                                         <p className="bold">Inicio</p>
@@ -200,14 +221,14 @@ const Pacientes = () => {
                                     </div>
                                     <div className="row w100 gap10">
                                         <p className="bold">Fin:</p>
-                                        <p> </p>
+                                        <button className="button-tiny">Finalizar</button>
                                     </div>
                                     <div className="row w100 gap10">
                                         <p className="bold">Estado:</p>
                                         <p className="green">EN PROCESO</p>
                                     </div>
                                 </div>
-                                <div className="row">
+                                <div className="row w100 align-center">
                                     <p className="bold w100">Clinico</p>
                                     <div className="row w100 gap10">
                                         <p className="bold">Inicio</p>

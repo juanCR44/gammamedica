@@ -18,4 +18,4 @@ export interface Paciente {
     tramite:string
 }
 
-export default Paciente;
+export default Paciente;   
