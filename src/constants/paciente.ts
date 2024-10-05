@@ -1,21 +1,24 @@
+import Documento from "./documento";
+
 export interface Paciente {
-    numeroDocumento: string,
-    apellidoPaterno:string,
-    apellidoMaterno:string,
-    direccion:string,
-    celular:string,
-    nacionalidad:string,
-    correo:string,
-    departamento:string,
-    provincia:string,
-    distrito:string,
-    nombre:string,
-    startTime: string
-    documento:string,
-    fechaNacimiento: string,
-    genero:string,
-    categoria:string,
-    tramite:string
+    paternalLastName: string,
+    maternalLastName: string,
+    address: string,
+    phone: string,
+    nationality: string,
+    email: string,
+    departament: string,
+    province: string,
+    district: string,
+    name: string,
+    age:string,
+    bloodtype:string,
+    /*startTime: string*/
+    birthday: string,
+    gender: string,
+    document: Documento
+    /*categoria:string,
+    tramite:string*/
 }
 
 export default Paciente;   

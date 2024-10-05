@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Paciente from "../../constants/paciente";
 import { start } from "repl";
 import { registroPaciente } from "../../controller/paciente";
+import Documento from "../../constants/documento";
 
 const RegisterPatient = () => {
 
@@ -37,24 +38,27 @@ const RegisterPatient = () => {
         const categoria = document.querySelector('#categoria option:checked') as HTMLInputElement;
         const tramite = document.querySelector('#tramite option:checked') as HTMLInputElement;
 
+        const doc : Documento = {type: documento.value, code:numeroDocumento}
+
         let paciente: Paciente = {
-            numeroDocumento: numeroDocumento, 
-            apellidoMaterno: apellidoMaterno,
-            apellidoPaterno: apellidoPaterno,
-            direccion: direccion,
-            celular: celular,
-            nacionalidad:nacionalidad,
-            correo:correo,
-            departamento:departamento,
-            provincia:provincia,
-            distrito:distrito,
-            nombre:nombre,
-            startTime:startTime.value,
-            documento:documento.value,
-            fechaNacimiento:fechaNacimiento.value,
-            genero:genero.value,
-            categoria:categoria.value,
-            tramite:tramite.value
+            maternalLastName: apellidoMaterno,
+            paternalLastName: apellidoPaterno,
+            address: direccion,
+            phone: celular,
+            nationality:nacionalidad,
+            email:correo,
+            departament:departamento,
+            province:provincia,
+            district:distrito,
+            name:nombre,
+            /*startTime:startTime.value,*/
+            document:doc,
+            birthday:fechaNacimiento.value,
+            gender:genero.value,
+            age:'0',
+            bloodtype:''
+            /*categoria:categoria.value,
+            tramite:tramite.value*/
         }
 
         let res = await registroPaciente(paciente);
