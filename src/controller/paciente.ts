@@ -1,7 +1,7 @@
 import Filtro from "../constants/filtro";
 import Paciente from "../constants/paciente";
 
-const urlRegistroPaciente = "http://localhost:8000/api/v1/patient/create"
+const urlRegistroPaciente = "http://localhost:8080/api/v1/patient/create"
 const urlGetPatientByFilter = "http://localhost:8000/getpaciente"
 
 export async function registroPaciente(paciente: Paciente): Promise<any> {
